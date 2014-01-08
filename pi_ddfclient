@@ -1,0 +1,13 @@
+daemon=300
+syslog=yes
+mail=root
+mail-failure=root
+pid=/var/run/ddclient.pid
+ssl=yes
+use=web, web=myip.dnsdynamic.com
+server=www.dnsdynamic.com
+login= #login goes here
+password= #password goes here
+server=www.dnsdynamic.org
+protocol=dyndns2
+#dnsdynamic location goes here ex. XYZ.http01.com
