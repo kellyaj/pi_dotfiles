@@ -18,7 +18,7 @@ class Governor(object):
             return "Home"
         else:
             lookup_string = "curl -s http://dazzlepod.com/ip/" + ip + ".json"
-            lookup_result = run_command(lookup_string)
+            lookup_result = Governor.run_command(lookup_string)
             json_result = json.loads(lookup_result)
             return json_result["city"]
 
@@ -28,9 +28,9 @@ login_3 = "cat /var/log/auth.log | grep 'sshd.*Accepted' | tail -4 | head -1"
 
 commands = [login_1, login_2, login_3]
 
-things = []
+locations = []
 
 for idx, command in enumerate(commands):
     ip = Governor.parse_ip(Governor.run_command(command))
-    things.append(Governor.lookup(ip))
-print ", ".join(things)
+    locations.append(Governor.lookup(ip))
+print ", ".join(locations)
